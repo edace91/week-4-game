@@ -1,0 +1,35 @@
+body {
+ 
+     background: url(../images/background.jpg);
+     
+ }
+
+img {
+
+	width:100px; 
+	
+	
+} 
+
+h4 {
+
+	color: white;
+
+}
+
+.desc {
+
+	color: red;
+	text-align: center;
+
+}
+
+.HP {
+
+	color: red;
+	text-align: center;
+
+}
+
+
+
