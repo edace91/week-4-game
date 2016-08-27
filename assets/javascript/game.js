@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     // make variables global to the runtime of our application
-    var healthPoints, attackPower, counterAttackPower, isCharacterChosen, isEnemyChosen, isAttacked, isDefeated, hawkinsIndiana;
+    var healthPoints, attackPower, counterAttackPower, isCharacterChosen, isEnemyChosen, isAttacked, isDefeated, hawkinsIndiana, characterStats;
    
     // function to initialize our game. 
     function initializeRPG() {
@@ -16,27 +16,33 @@ $(document).ready(function () {
         hawkinsIndiana=["Eleven","Hopper","Demogorgon","Brenner"];   
     }
 
-    var statsEleven = {
+
+    /*var statsEleven = {
         healthPoints: 120;
         attackPower: 7;
         counterAttackPower:11;
-    }
+    };
+
     var statsHopper = {
         healthPoints: 100;
         attackPower: 6;
         counterAttackPower:9;
-    }
+    };
+
     var statsDemogorgon = {
         healthPoints: 150;
         attackPower:8;
         counterAttackPower:10;
-    }
-    var statsBenner = {
+    };
+
+    var statsBrenner = {
         healthPoints:100;
         attackPower:5;
         counterAttackPower:8;
-    }
+    };*/
 
+
+    //var characterStats = [ statsEleven, statsHopper, statsDemogorgon, statsBrenner];
 
 
     // add an on click listener to all elements that have the class 'number'
@@ -58,21 +64,7 @@ $(document).ready(function () {
             }
             isCharacterChosen = true;
         });
-        //move characters to Enemy position if Brenner is chosen 
-       /* $('#Brenner').on('click', function () {
-            if (isCharacterChosen) return;
-
-             $('#Eleven').appendTo('#Enemy1');
-             $('#characterEleven').attr('src',"assets/images/attackEleven.png");
-
-             $('#Hopper').appendTo('#Enemy2');
-             $('#characterHopper').attr('src', "assets/images/attackChiefHopper.png");
-
-             $('#Demogorgon').appendTo('#Enemy3');
-             $('#characterDemogorgon').attr('src',"assets/images/attackDemogorgon.png");
-
-            isCharacterChosen = true;
-        });*/
+      
     });
     $('.availableEnemies').on('click',function(){
         if (isEnemyChosen) return;
@@ -86,15 +78,35 @@ $(document).ready(function () {
         });
 
     });
-
- 
   
-
-
-   
-    $('. ').on('click', function () {
+    /*$('#buttonAttack').on('click', function () {
         
-    });
+        if (isEnemyChosen = true){
+
+            $('#')
+
+
+
+        }
+        //Figure out who the Hero is
+
+
+        //Figure out Nemesis
+
+        //Get Hero attack power
+
+        //get nemesis HP
+
+        //inlict damage is dead
+
+        //counter attack 
+
+        //Get Hearo's health
+
+        //inflict damage, check if dead
+        
+    });*/
+
     // add an on click listener to all elements that have the class 'clear'
     $('.clear').on('click', function () {
         // call initializeRPG so we can reset the state of our app
