@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <title>StrangerRPG</title>
 
-  <!-- Added link to the jQuery Library -->
+    <!-- Added link to the jQuery Library -->
 <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
+    <!--Project style sheet -->
  <link rel= "stylesheet" type= "text/css" href= "assets/css/style.css">
 
     <!-- Added a link to Bootstrap-->
@@ -15,16 +16,23 @@
 
 </head>
 <body>
-
-<div>
-    <h3 class="text-right">Stranger Things RPG</h3>
-    <h6 class="text-right">Survive the upsidedown by defeating your enemies</h6>
+<!--Heading of the page-->
+<div class="container">
+    <div class = "row">
+        <div>
+            <!--Title-->
+            <h3 class="text-right" style="color: white">Stranger Things RPG</h3>
+            <!--Description-->
+            <h6 class="text-right" style="color: white">Survive the upsidedown by defeating your enemies</h6>
+        </div>
+    </div>
 </div>
 
+<!--Initial listing of the RPG characters-->
 <div class= "container">
 
     <div class= "row">
-
+        <!--Each Character is a button-->
         <div class="characters">
 
             <!--Eleven-->
@@ -32,7 +40,7 @@
             <div class= "col-lg-2" >
                 <button id = "Eleven" class = "character" style = "background: black">
                     <div class = "desc">Eleven</div>
-                    <img src="assets/images/Eleven.png" >
+                    <img id = "characterEleven" src="assets/images/Eleven.png" >
                     <div class = "HP">120</div>
                 </button>  
             </div>
@@ -42,7 +50,7 @@
             <div class= "col-lg-2">
                 <button id = "Hopper" class = "character" style = "background: black">
                     <div class = "desc">Chief Hopper</div>
-                    <img src="assets/images/ChiefHopper.png">  
+                    <img id = "characterHopper" src="assets/images/ChiefHopper.png">  
                     <div class = "HP">100</div>
                 </button> 
              </div>
@@ -52,7 +60,7 @@
             <div class= "col-lg-2">
                 <button id = "Demogorgon" class = "character" style = "background: black">
                     <div class = "desc">Demogorgon</div>
-                    <img src="assets/images/Demogorgon.png"> 
+                    <img id = "characterDemogorgon" src="assets/images/Demogorgon.png"> 
                     <div class = "HP">150</div>
                 </button>    
             </div>
@@ -60,9 +68,9 @@
             <!--Dr. Martin Brenner-->
 
             <div class= "col-lg-2">
-                <button id= "Brenner" class = "character"style = "background: black"> 
+                <button id= "Brenner" class = "character" style = "background: black"> 
                     <div class = "desc">Dr. Brenner</div> 
-                    <img src="assets/images/DrMartinBrenner.png"> 
+                    <img id = "characterBrenner" src="assets/images/DrMartinBrenner.png"> 
                     <div class="HP">100</div>
                 </button>    
             </div>
@@ -74,24 +82,22 @@
    
 </div>
 
-        <!-- Enemies Available to Attack -->
+<!-- Enemies Available to Attack -->
 <div class= "container">
 
     <div class= "row">
         <div class="col-lg-12">  
-
+            <!--Enemy slot 1-->
             <div class= "col-lg-2">
                 <div id ="Enemy1"></div> 
             </div>
-
+            <!--Enemy slot 2-->
             <div class= "col-lg-2">  
                 <div id ="Enemy2"></div>
             </div> 
-            
+            <!--Enemy slot 3-->
             <div class= "col-lg-2">    
                 <div id ="Enemy3"></div> 
-            <div class= "col-lg-2">    
-
         </div>
     </div>
     <br>
@@ -99,7 +105,7 @@
 <br>
 <h4 style= "color: white">Enemies Available to Attack</h4> 
 
-<!--fight Section-->
+<!--fight Section Button-->
 
 <div class= "container">
     <div class="row">
@@ -117,10 +123,12 @@
     <div class= "row">
 
         <div class="col-lg-12">  
-            
-            <h4 style= "color: white">Defender</h4> 
+            <!--TIttle of section-->
+            <h4 style= "color: white">Defender</h4>
+            <!--Defender enemy slot--> 
             <div id="Defender"></div>
-           
+            <!--message plaver recieves after executing attack action or win/lose event-->
+            <p id = "playerMessage" style="color: white"> <p>
            
         </div>
 
@@ -128,85 +136,8 @@
 
 </div> 
 
-<script type="text/javascript">
-
-$(document).ready(function () {
-    // make variables global to the runtime of our application
-    var healthPoints, attackPower, counterAttackPower, isCharacterChosen, isAttacked, isDefeated;
-    // function to initialize our game. 
-
-    function initializeRPG() {
-        healthPoints = "";
-        attackPower = "";
-        counterAttackPower = "";
-        isCharacterChosen = false;
-        isEnemyChosen = false;
-        isAttacked= false;
-        isDefeated= false;
-
-        
-    }
-
-    // add an on click listener to all elements that have the class 'number'
-
-    $('.characters').on('click', function () {
-        
-        if (isCharacterChosen) return;
-
-        $('#Eleven').on('click', function () {
-            if (isCharacterChosen) return;
-             $("#Hopper").appendTo("#Enemy1");
-             $("#Demogorgon").appendTo("#Enemy2");
-             $("#Brenner").appendTo("#Enemy3");
-            isCharacterChosen = true;
-        });
-
-
-        $('#Hopper').on('click', function () {
-            if (isCharacterChosen) return;
-             $("#Eleven").appendTo("#Enemy1");
-             $("#Demogorgon").appendTo("#Enemy2");
-             $("#Brenner").appendTo("#Enemy3");
-            isCharacterChosen = true;
-        });
-
-        $('#Demogorgon').on('click', function () {
-            if (isCharacterChosen) return;  
-             $("#Eleven").appendTo("#Enemy1");
-             $("#Hopper").appendTo("#Enemy2");
-             $("#Brenner").appendTo("#Enemy3");
-            isCharacterChosen = true;
-        });
-
-        $('#Brenner').on('click', function () {
-            if (isCharacterChosen) return;
-             $("#Eleven").appendTo("#Enemy1");
-             $("#Hopper").appendTo("#Enemy2");
-             $("#Demogorgon").appendTo("#Enemy3");
-            isCharacterChosen = true;
-        });
-    });
-
-
-    // add an on click listener to all elements that have the class 'operator'
-  
-
-
-    // add an on click listener to all elements that have the class 'equal'
-    $('. ').on('click', function () {
-        
-    });
-    // add an on click listener to all elements that have the class 'clear'
-    $('.clear').on('click', function () {
-        // call initializeRPG so we can reset the state of our app
-        initializeRPG();
-    });
-
-    // call initializeRPG so we can set the state of our app
-    initializeRPG();
-});
-
-</script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 </html>
