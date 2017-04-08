@@ -3,7 +3,7 @@ JQuery RPG Game
 
 ## Synopsis
 
-An fun and interactive game for web browsers with a Stranger things Theme. This time, the app dynamically updates HTML pages with the jQuery library.
+An fun and interactive game for web browsers with a Stranger things Theme. This time, the app dynamically updates HTML pages by using the jQuery library.
 
 ## Project Structure
 
